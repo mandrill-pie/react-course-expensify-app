@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpenseListItem - render 1 list 1`] = `
+<tr>
+  <td>
+    3
+  </td>
+  <td>
+    Rented car
+  </td>
+  <td>
+    143.16
+  </td>
+  <td>
+    2017-10-05
+  </td>
+  <td>
+    <Link
+      replace={false}
+      to="/edit/3"
+    >
+      Edit
+    </Link>
+  </td>
+</tr>
+`;

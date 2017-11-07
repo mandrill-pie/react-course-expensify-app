@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpenseList - render list of expenses 1`] = `
+<table>
+  <tbody>
+    <ExpenseListItem
+      amount={2.76}
+      createdAt={1505145600000}
+      description="Gum"
+      id={1}
+      key="1"
+      note=""
+    />
+    <ExpenseListItem
+      amount={1.95}
+      createdAt={1487779200000}
+      description="Mints"
+      id={2}
+      key="2"
+      note="Some green mints"
+    />
+    <ExpenseListItem
+      amount={143.16}
+      createdAt={1507132800000}
+      description="Rented car"
+      id={3}
+      key="3"
+      note="From my trip to New Zeeland"
+    />
+    <ExpenseListItem
+      amount={14.95}
+      createdAt={1509811200000}
+      description="Gummy bears"
+      id={4}
+      key="4"
+      note="A whole box"
+    />
+  </tbody>
+</table>
+`;
+
+exports[`ExpenseList - render with no expenses 1`] = `
+<p>
+  No expenses found
+</p>
+`;
