@@ -21,7 +21,7 @@ const store = configureStore();
 store.subscribe(() => {
 	const state = store.getState();
 	const selectedExpenses = selectExpenses(state.expenses, state.filters);
-	log('STATE ------------------------');
+	log('STATE ---------------------');
 	log('state.expenses (actually selectedExpenses):');
 	log(selectedExpenses);
 	log('state.filters:');
