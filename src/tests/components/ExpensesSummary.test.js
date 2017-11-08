@@ -15,6 +15,18 @@ beforeEach(() => {
 	);
 });
 
-test('render ExpensesSummary', () => {
-	expect(wrapper).toMatchSnapshot();
+test('render ExpensesSummary with one expense', () => {
+	expect(
+		<ExpensesSummary
+			expensesCount={1}
+			expensesTotal={123} />
+	).toMatchSnapshot();
+});
+
+test('render ExpensesSummary with multiple expenses', () => {
+	expect(
+		<ExpensesSummary
+			expensesCount={3}
+			expensesTotal={1234} />
+	).toMatchSnapshot();
 });
