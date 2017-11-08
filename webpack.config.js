@@ -10,7 +10,7 @@ module.exports = (env) => {
 	return {
 		entry: './src/app.js',
 		output: {
-			path: path.join(dirname, 'public'),
+			path: path.join(dirname, 'public', 'dist'),
 			filename: 'bundle.js'
 		},
 		module: {
@@ -55,7 +55,8 @@ module.exports = (env) => {
 		devtool: isProduction ? 'source-map' : 'inline-source-map',
 		devServer: {
 			contentBase: path.join(dirname, 'public'),
-			historyApiFallback: true
+			historyApiFallback: true, // no 404 for missing pages
+			publicPath: '/dist/' // access to assets
 		}
 	};
 };
