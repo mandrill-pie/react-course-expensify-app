@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
-import {log} from './utils';
 import configureStore from './store/configureStore';
 import expenses from './tests/fixtures/expenses';
 import selectExpenses from './selectors/expenses';
@@ -17,15 +16,21 @@ import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 
+/*
+    "babel-preset-jest": "21.2.0",
+    "enzyme-adapter-react-16": "1.0.4",
+    "raf": "3.4.0",
+ */
+
 // Subscribe
 store.subscribe(() => {
 	const state = store.getState();
 	const selectedExpenses = selectExpenses(state.expenses, state.filters);
-	log('STATE ---------------------');
-	log('state.expenses (actually selectedExpenses):');
-	log(selectedExpenses);
-	log('state.filters:');
-	log(state.filters);
+	console.log('STATE --------------------');
+	console.log('state.expenses (actually selectedExpenses)');
+	console.log(selectedExpenses);
+	console.log('state.filters');
+	console.log(state.filters);
 });
 
 

@@ -18,6 +18,7 @@ export class EditExpensePage extends React.Component {
 	}
 
 	render() {
+		console.log('----------- srendering something');
 		return (
 			<div>
 				<ExpenseForm
