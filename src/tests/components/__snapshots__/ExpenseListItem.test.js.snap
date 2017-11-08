@@ -9,7 +9,7 @@ exports[`ExpenseListItem - render 1 list 1`] = `
     Rented car
   </td>
   <td>
-    143.16
+    $143.16
   </td>
   <td>
     2017-10-05

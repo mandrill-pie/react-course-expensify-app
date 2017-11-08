@@ -16,12 +16,6 @@ import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 
-/*
-    "babel-preset-jest": "21.2.0",
-    "enzyme-adapter-react-16": "1.0.4",
-    "raf": "3.4.0",
- */
-
 // Subscribe
 store.subscribe(() => {
 	const state = store.getState();
