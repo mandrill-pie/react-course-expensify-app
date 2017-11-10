@@ -3,6 +3,7 @@
 exports[`ExpenseListItem - render 1 list 1`] = `
 <tr>
   <td>
+    ID 
     3
   </td>
   <td>

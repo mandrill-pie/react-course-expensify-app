@@ -6,7 +6,7 @@ import numeral from 'numeral';
 const ExpenseListItem = ({id, description, amount, createdAt}) => (
 	<tr>
 		<td>
-			{id}
+			ID {id}
 		</td>
 		<td>
 			{description}

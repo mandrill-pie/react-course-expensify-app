@@ -11,27 +11,28 @@ import { sort, setFilterText } from './actions/filters';
 import './styles/styles.scss';
 import 'normalize.css/normalize.css';
 import 'react-dates/lib/css/_datepicker.css';
+import './firebase/firebase';
 
 'use strict';
 
 const store = configureStore();
 
 // Subscribe
-store.subscribe(() => {
-	const state = store.getState();
-	const selectedExpenses = selectExpenses(state.expenses, state.filters);
-	console.log('STATE --------------------');
-	console.log('state.expenses (actually selectedExpenses)');
-	console.log(selectedExpenses);
-	console.log('state.filters');
-	console.log(state.filters);
-});
+// store.subscribe(() => {
+// 	const state = store.getState();
+// 	const selectedExpenses = selectExpenses(state.expenses, state.filters);
+// 	console.log('STATE --------------------');
+// 	console.log('state.expenses (actually selectedExpenses)');
+// 	console.log(selectedExpenses);
+// 	console.log('state.filters');
+// 	console.log(state.filters);
+// });
 
 
-// Add some dummy data
-for (const expense of expenses) {
-	store.dispatch(addExpense(expense));
-}
+// Add some dummy data - no longer needed, we use db now
+// for (const expense of expenses) {
+// 	store.dispatch(addExpense(expense));
+// }
 
 const jsx = (
 	<Provider store={store}>
