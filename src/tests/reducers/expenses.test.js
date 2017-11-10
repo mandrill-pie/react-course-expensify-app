@@ -83,32 +83,11 @@ test('expensesReducer - EDIT_EXPENSE action, no editing if expense not found', (
 	expect(state).toEqual(expenses);
 });
 
-
-/*
-const expensesReducerDefaultState = [];
-
-export default (state = expensesReducerDefaultState, action) => {
-	switch (action.type) {
-	case 'ADD_EXPENSE':
-		return [
-			...state,
-			action.expense
-		];
-	case 'REMOVE_EXPENSE':
-		return state.filter((expense) => expense.id !== action.id);
-	case 'EDIT_EXPENSE':
-		return state.map((expense) => {
-			if (expense.id === action.id) {
-				return {
-					...expense,
-					...action.updates
-				};
-			} else {
-				return expense;
-			}
-		});
-	default:
-		return state;
-	}
-};
-*/
+test('should set expenses', () => {
+	const action = {
+		type: 'SET_EXPENSES',
+		expenses: expenses[1]
+	};
+	const state = expensesReducer(expenses, action);
+	expect(state).toEqual(expenses[1]);
+});

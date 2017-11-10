@@ -1,11 +1,13 @@
 import uuid from 'uuid';
 import database from '../firebase/firebase';
 
+// ADD_EXPENSE
 export const addExpense = (expense) => ({
 	type: 'ADD_EXPENSE',
 	expense
 });
 
+// Async action
 export const startAddExpense = (expenseData = {}) => {
 	return (dispatch) => {
 		// Destructure received data (expenseData)
@@ -35,13 +37,45 @@ export const startAddExpense = (expenseData = {}) => {
 	};
 };
 
+// REMOVE_EXPENSE
 export const removeExpense = ({ id } = {}) => ({
 	type: 'REMOVE_EXPENSE',
 	id
 });
 
+// EDIT_EXPENSE
 export const editExpense = (id, updates) => ({
 	type: 'EDIT_EXPENSE',
 	id,
 	updates
 });
+
+// SET_EXPENSES (get expenses from DB)
+export const setExpenses = (expenses) => ({
+	type: 'SET_EXPENSES',
+	expenses
+});
+
+// Async action
+export const startSetExpenses = () => {
+	return (dispatch) => {
+		// Get expenses from DB
+		return database.ref('expenses')
+			.once('value')
+			.then((snapshot) => {
+				const expenses = [];
+				snapshot.forEach((childSnapshot) => {
+					expenses.push({
+						...childSnapshot.val(),
+						id: childSnapshot.key,
+					});
+				});
+
+				// Update the Redux Store
+				dispatch(setExpenses(expenses));	
+			})
+			.catch((error) => {
+				console.log('Error: ', error);
+			});
+	};
+};

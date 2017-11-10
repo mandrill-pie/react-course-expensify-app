@@ -6,7 +6,7 @@ import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import expenses from './tests/fixtures/expenses';
 import selectExpenses from './selectors/expenses';
-import { addExpense } from './actions/expenses';
+import { startSetExpenses } from './actions/expenses';
 import { sort, setFilterText } from './actions/filters';
 import './styles/styles.scss';
 import 'normalize.css/normalize.css';
@@ -28,16 +28,14 @@ const store = configureStore();
 // 	console.log(state.filters);
 // });
 
-
-// Add some dummy data - no longer needed, we use db now
-// for (const expense of expenses) {
-// 	store.dispatch(addExpense(expense));
-// }
-
 const jsx = (
 	<Provider store={store}>
 		<AppRouter />
 	</Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+
+store.dispatch(startSetExpenses()).then(() => {
+	ReactDOM.render(jsx, document.getElementById('app'));
+});
