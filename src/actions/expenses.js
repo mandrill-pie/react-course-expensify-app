@@ -9,7 +9,10 @@ export const addExpense = (expense) => ({
 
 // Async action
 export const startAddExpense = (expenseData = {}) => {
-	return (dispatch) => {
+	return (dispatch, getState) => {
+		// get uid from Store state
+		const uid = getState().auth.uid;
+
 		// Destructure received data (expenseData)
 		const {
 			description = '',
@@ -25,7 +28,7 @@ export const startAddExpense = (expenseData = {}) => {
 			amount,
 			createdAt
 		};
-		return database.ref('expenses')
+		return database.ref(`users/${uid}/expenses`)
 			.push(expense)
 			.then((ref) => {
 				// Update the Redux Store
@@ -45,9 +48,12 @@ export const removeExpense = ({ id } = {}) => ({
 
 // Async action
 export const startRemoveExpense = ({ id }) => {
-	return (dispatch) => {
+	return (dispatch, getState) => {
+		// get uid from Store state
+		const uid = getState().auth.uid;
+
 		// remove expense from DB
-		return database.ref(`expenses/${id}`).remove().then(() => {
+		return database.ref(`users/${uid}/expenses/${id}`).remove().then(() => {
 			// remove expense from state
 			dispatch(removeExpense({ id }));
 		});
@@ -63,9 +69,12 @@ export const editExpense = (id, updates) => ({
 
 // Async action
 export const startEditExpense = (id, updates) => {
-	return (dispatch) => {
+	return (dispatch, getState) => {
+		// get uid from Store state
+		const uid = getState().auth.uid;
+
 		// Update expense in DB
-		return database.ref(`expenses/${id}`)
+		return database.ref(`users/${uid}/expenses/${id}`)
 			.update(updates)
 			.then(() => {
 				// Update the Redux Store
@@ -85,9 +94,12 @@ export const setExpenses = (expenses) => ({
 
 // Async action
 export const startSetExpenses = () => {
-	return (dispatch) => {
+	return (dispatch, getState) => {
+		// get uid from Store state
+		const uid = getState().auth.uid;
+
 		// Get expenses from DB
-		return database.ref('expenses')
+		return database.ref(`users/${uid}/expenses`)
 			.once('value')
 			.then((snapshot) => {
 				const expenses = [];
