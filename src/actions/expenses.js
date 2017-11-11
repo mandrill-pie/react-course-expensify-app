@@ -43,12 +43,39 @@ export const removeExpense = ({ id } = {}) => ({
 	id
 });
 
+// Async action
+export const startRemoveExpense = ({ id }) => {
+	return (dispatch) => {
+		// remove expense from DB
+		return database.ref(`expenses/${id}`).remove().then(() => {
+			// remove expense from state
+			dispatch(removeExpense({ id }));
+		});
+	};
+};
+
 // EDIT_EXPENSE
 export const editExpense = (id, updates) => ({
 	type: 'EDIT_EXPENSE',
 	id,
 	updates
 });
+
+// Async action
+export const startEditExpense = (id, updates) => {
+	return (dispatch) => {
+		// Update expense in DB
+		return database.ref(`expenses/${id}`)
+			.update(updates)
+			.then(() => {
+				// Update the Redux Store
+				dispatch(editExpense(id, updates));	
+			})
+			.catch((error) => {
+				console.log('Error: ', error);
+			});
+	};
+};
 
 // SET_EXPENSES (get expenses from DB)
 export const setExpenses = (expenses) => ({

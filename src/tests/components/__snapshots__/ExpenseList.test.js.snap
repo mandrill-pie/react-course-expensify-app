@@ -7,32 +7,32 @@ exports[`ExpenseList - render list of expenses 1`] = `
       amount={2.76}
       createdAt={1505145600000}
       description="Gum"
-      id={1}
-      key="1"
+      id="u8jbo48fjsbg"
+      key="u8jbo48fjsbg"
       note=""
     />
     <ExpenseListItem
       amount={1.95}
       createdAt={1487779200000}
       description="Mints"
-      id={2}
-      key="2"
+      id="bs29w2fheg9"
+      key="bs29w2fheg9"
       note="Some green mints"
     />
     <ExpenseListItem
       amount={143.16}
       createdAt={1507132800000}
       description="Rented car"
-      id={3}
-      key="3"
+      id="0f0gj3bouwouf"
+      key="0f0gj3bouwouf"
       note="From my trip to New Zeeland"
     />
     <ExpenseListItem
       amount={14.95}
       createdAt={1509811200000}
       description="Gummy bears"
-      id={4}
-      key="4"
+      id="vcv28f0nr8fn"
+      key="vcv28f0nr8fn"
       note="A whole box"
     />
   </tbody>

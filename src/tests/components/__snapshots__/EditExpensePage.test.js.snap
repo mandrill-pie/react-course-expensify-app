@@ -8,7 +8,7 @@ exports[`EditExpensePage - render page 1`] = `
         "amount": 14.95,
         "createdAt": 1509811200000,
         "description": "Gummy bears",
-        "id": 4,
+        "id": "vcv28f0nr8fn",
         "note": "A whole box",
       }
     }

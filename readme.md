@@ -47,3 +47,4 @@ https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
 
 ### React Diagramm
 View -> Actions -> Dispatch -> Reducer -> State -> View
+(The View Dispatches an Action to a Reducer in order to change the Store State)

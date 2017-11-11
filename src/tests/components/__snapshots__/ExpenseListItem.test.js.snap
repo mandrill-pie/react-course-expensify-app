@@ -4,7 +4,7 @@ exports[`ExpenseListItem - render 1 list 1`] = `
 <tr>
   <td>
     ID 
-    3
+    0f0gj3bouwouf
   </td>
   <td>
     Rented car
@@ -18,7 +18,7 @@ exports[`ExpenseListItem - render 1 list 1`] = `
   <td>
     <Link
       replace={false}
-      to="/edit/3"
+      to="/edit/0f0gj3bouwouf"
     >
       Edit
     </Link>
