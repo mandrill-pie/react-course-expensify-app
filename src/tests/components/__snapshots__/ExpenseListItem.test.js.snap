@@ -1,27 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ExpenseListItem - render 1 list 1`] = `
-<tr>
-  <td>
-    ID 
-    0f0gj3bouwouf
-  </td>
-  <td>
-    Rented car
-  </td>
-  <td>
-    $143.16
-  </td>
-  <td>
-    2017-10-05
-  </td>
-  <td>
-    <Link
-      replace={false}
-      to="/edit/0f0gj3bouwouf"
+<Link
+  className="list-item"
+  replace={false}
+  to="/edit/0f0gj3bouwouf"
+>
+  <div>
+    <h3
+      className="list-item__title"
     >
-      Edit
-    </Link>
-  </td>
-</tr>
+      Rented car
+    </h3>
+    <span
+      className="list-item__date"
+    >
+      2017-10-05
+    </span>
+  </div>
+  <div>
+    <h3
+      className="list-item__amount"
+    >
+      $143.16
+    </h3>
+  </div>
+</Link>
 `;

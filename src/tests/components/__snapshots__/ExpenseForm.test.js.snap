@@ -2,16 +2,19 @@
 
 exports[`ExpenseForm - render eror for invalid form submission 1`] = `
 <form
+  className="form"
   onSubmit={[Function]}
 >
   <input
     autoFocus={true}
+    className="input-text"
     onChange={[Function]}
     placeholder="Description"
     type="text"
     value=""
   />
   <input
+    className="input-text"
     onChange={[Function]}
     placeholder="Amount"
     type="text"
@@ -94,32 +97,39 @@ exports[`ExpenseForm - render eror for invalid form submission 1`] = `
     withPortal={false}
   />
   <textarea
+    className="textarea"
     onChange={[Function]}
     placeholder="Add a note"
     value=""
   />
   <input
+    className="btn"
     type="submit"
-    value="Add expense"
+    value="Save expense"
   />
 </form>
 `;
 
 exports[`ExpenseForm - render eror for invalid form submission 2`] = `
 <form
+  className="form"
   onSubmit={[Function]}
 >
-  <p>
+  <p
+    className="form__error"
+  >
     Please provide a description and amount!
   </p>
   <input
     autoFocus={true}
+    className="input-text"
     onChange={[Function]}
     placeholder="Description"
     type="text"
     value=""
   />
   <input
+    className="input-text"
     onChange={[Function]}
     placeholder="Amount"
     type="text"
@@ -202,29 +212,34 @@ exports[`ExpenseForm - render eror for invalid form submission 2`] = `
     withPortal={false}
   />
   <textarea
+    className="textarea"
     onChange={[Function]}
     placeholder="Add a note"
     value=""
   />
   <input
+    className="btn"
     type="submit"
-    value="Add expense"
+    value="Save expense"
   />
 </form>
 `;
 
 exports[`ExpenseForm - render form 1`] = `
 <form
+  className="form"
   onSubmit={[Function]}
 >
   <input
     autoFocus={true}
+    className="input-text"
     onChange={[Function]}
     placeholder="Description"
     type="text"
     value=""
   />
   <input
+    className="input-text"
     onChange={[Function]}
     placeholder="Amount"
     type="text"
@@ -307,29 +322,34 @@ exports[`ExpenseForm - render form 1`] = `
     withPortal={false}
   />
   <textarea
+    className="textarea"
     onChange={[Function]}
     placeholder="Add a note"
     value=""
   />
   <input
+    className="btn"
     type="submit"
-    value="Add expense"
+    value="Save expense"
   />
 </form>
 `;
 
 exports[`ExpenseForm - render form with expense data (editing) 1`] = `
 <form
+  className="form"
   onSubmit={[Function]}
 >
   <input
     autoFocus={true}
+    className="input-text"
     onChange={[Function]}
     placeholder="Description"
     type="text"
     value="Rented car"
   />
   <input
+    className="input-text"
     onChange={[Function]}
     placeholder="Amount"
     type="text"
@@ -412,13 +432,15 @@ exports[`ExpenseForm - render form with expense data (editing) 1`] = `
     withPortal={false}
   />
   <textarea
+    className="textarea"
     onChange={[Function]}
     placeholder="Add a note"
     value="From my trip to New Zeeland"
   />
   <input
+    className="btn"
     type="submit"
-    value="Add expense"
+    value="Save expense"
   />
 </form>
 `;
