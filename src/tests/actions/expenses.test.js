@@ -13,19 +13,22 @@ import {
 import expenses from '../fixtures/expenses';
 import database from '../../firebase/firebase';
 
-// fake uid
-const mockUID = 'abcd1234testuid';
+// fake user
+const mockUser = {
+	uid: '123abc',
+	displayName: 'Logged In User'
+};
 // fake default state
 const mockState = {
 	auth: {
-		uid: mockUID
+		user: mockUser
 	}
 };
 // fake store
 const createMockStore = configureMockStore([thunk]);
 
 beforeEach((done) => {
-	// wipe db expenses and fill with dummy data
+	// wipe db user expenses and fill with dummy data
 	const expensesData = {};
 	expenses.forEach((expense) => {
 		expensesData[expense.id] = {
@@ -33,7 +36,7 @@ beforeEach((done) => {
 			id: null
 		};
 	});
-	database.ref(`users/${mockUID}/expenses`).set(expensesData).then(() => { 
+	database.ref(`users/${mockUser.uid}/expenses`).set(expensesData).then(() => { 
 		done();
 	});
 });
@@ -58,7 +61,7 @@ test('should remove expense from db and store', (done) => {
 			id: expense.id
 		});
 
-		return database.ref(`users/${mockUID}/expenses/${actions[0].id}`).once('value');
+		return database.ref(`users/${mockUser.uid}/expenses/${actions[0].id}`).once('value');
 	}).then((snapshot) => {
 		expect(snapshot.val()).toBeFalsy();
 		done();
@@ -100,7 +103,7 @@ test('should edit expense in db and store', (done) => {
 			updates
 		});
 
-		return database.ref(`users/${mockUID}/expenses/${actions[0].id}`).once('value');
+		return database.ref(`users/${mockUser.uid}/expenses/${actions[0].id}`).once('value');
 	}).then((snapshot) => {
 		expect(snapshot.val().description).toEqual(updates.description);
 		done();
@@ -134,7 +137,7 @@ test('should add expense to db and store', (done) => {
 			}
 		});
 
-		return database.ref(`users/${mockUID}/expenses/${actions[0].expense.id}`).once('value');
+		return database.ref(`users/${mockUser.uid}/expenses/${actions[0].expense.id}`).once('value');
 	}).then((snapshot) => {
 		expect(snapshot.val()).toEqual(expense);
 		done();
@@ -161,7 +164,7 @@ test('should add expense to db and store (with default values)', (done) => {
 			}
 		});
 
-		return database.ref(`users/${mockUID}/expenses/${actions[0].expense.id}`).once('value');
+		return database.ref(`users/${mockUser.uid}/expenses/${actions[0].expense.id}`).once('value');
 	}).then((snapshot) => {
 		expect(snapshot.val()).toEqual(expenseDefaults);
 		done();

@@ -6,10 +6,15 @@ import { Header } from '../../components/Header';
 let startLogout, wrapper;
 
 beforeEach(() => {
+	const mockUser = {
+		uid: '123abc',
+		displayName: 'Logged In User'
+	};
 	// create spy functions
 	startLogout = jest.fn();
 	wrapper = shallow(
 		<Header
+			user={mockUser}
 			startLogout={startLogout} />
 	);
 });

@@ -46,8 +46,9 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
 	if (user) {
-		store.dispatch(login(user.uid));
-		console.log('User is logged in');
+		console.log(user);
+		store.dispatch(login(user));
+		console.log(`User ${user.email} logged in`);
 		store.dispatch(startSetExpenses()).then(() => {
 			renderApp();
 			if (history.location.pathname === '/') {
@@ -55,10 +56,9 @@ firebase.auth().onAuthStateChanged((user) => {
 			}
 		});		
 	} else {
-		store.dispatch(login());
-		console.log('User is logged out');
+		store.dispatch(logout());
+		console.log('User logged out');
 		renderApp();
 		history.push('/');
 	}
 });
-

@@ -11,7 +11,7 @@ export const addExpense = (expense) => ({
 export const startAddExpense = (expenseData = {}) => {
 	return (dispatch, getState) => {
 		// get uid from Store state
-		const uid = getState().auth.uid;
+		const uid = getState().auth.user.uid;
 
 		// Destructure received data (expenseData)
 		const {
@@ -50,7 +50,7 @@ export const removeExpense = ({ id } = {}) => ({
 export const startRemoveExpense = ({ id }) => {
 	return (dispatch, getState) => {
 		// get uid from Store state
-		const uid = getState().auth.uid;
+		const uid = getState().auth.user.uid;
 
 		// remove expense from DB
 		return database.ref(`users/${uid}/expenses/${id}`).remove().then(() => {
@@ -71,7 +71,7 @@ export const editExpense = (id, updates) => ({
 export const startEditExpense = (id, updates) => {
 	return (dispatch, getState) => {
 		// get uid from Store state
-		const uid = getState().auth.uid;
+		const uid = getState().auth.user.uid;
 
 		// Update expense in DB
 		return database.ref(`users/${uid}/expenses/${id}`)
@@ -96,7 +96,7 @@ export const setExpenses = (expenses) => ({
 export const startSetExpenses = () => {
 	return (dispatch, getState) => {
 		// get uid from Store state
-		const uid = getState().auth.uid;
+		const uid = getState().auth.user.uid;
 
 		// Get expenses from DB
 		return database.ref(`users/${uid}/expenses`)

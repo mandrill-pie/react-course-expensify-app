@@ -22,7 +22,8 @@ exports[`render header 1`] = `
   <button
     onClick={[Function]}
   >
-    Logout
+    Logout 
+    Logged In User
   </button>
 </header>
 `;
